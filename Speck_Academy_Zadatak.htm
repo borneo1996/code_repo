@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+<title>Speck Academy</title>
+<style>
+table {width:20%;}
+tr {width: 100%;}
+td { width: 50%;}
+li {padding: 1px;}
+a {text-decoration: none; color: black; vertical-align: text-top;}
+li.a:hover {background-color: #4747bf;}
+a.a:hover {background-color: #4747bf;}
+li.b:hover {background-color: #ff6666;}
+ul {list-style-type:none; vertical-align: top;}
+</style>
+</head>
+<script>
+function fill_toolbox(x){
+	var ul= document.getElementById("toolbox");
+	var li= document.createElement("li");
+	var autoinc = document.getElementById("toolbox").childElementCount+1;
+	li.setAttribute("class", "b");
+	li.setAttribute("onClick", "empty_toolbox(this.id)");
+	
+	if(x==1){
+	var alat = document.createTextNode("Čekić");
+	li.appendChild(alat);
+	var lista = document.getElementById("toolbox");
+	lista.insertBefore(li ,lista.childNodes[0]);
+	}
+	if(x==2){
+	var alat = document.createTextNode("Bušilica");
+	li.appendChild(alat);
+	var lista = document.getElementById("toolbox");
+	lista.insertBefore(li ,lista.childNodes[0]);
+	}
+	if(x==3){
+	var alat = document.createTextNode("Guma");
+	li.appendChild(alat);
+	var lista = document.getElementById("toolbox");
+	lista.insertBefore(li ,lista.childNodes[0]);
+	}
+	if(x==4){
+	var alat = document.createTextNode("Mač");
+	li.appendChild(alat);
+	var lista = document.getElementById("toolbox");
+	lista.insertBefore(li ,lista.childNodes[0]);
+	}
+	li.setAttribute("id", autoinc);
+}
+
+function empty_toolbox(x_id){
+	var ul= document.getElementById("toolbox");
+	var zapis = document.getElementById(x_id);
+	ul.removeChild(zapis);
+}
+</script>
+<body>
+<table align="center">
+<tr>
+<th align="center">Alati:</th>
+<th align="center">Toolbox:</th>
+</tr>
+<tr>
+<td valign="top">
+  <ul align="left">
+  <li class="a" id="Čekić" onclick="fill_toolbox(1)">Čekić</li>
+  <li class="a" id="Bušilica" onClick="fill_toolbox(2)">Bušilica</li>
+  <li class="a" id="Guma" onClick="fill_toolbox(3)">Guma</li>
+  <li class="a" id="Mač" onClick="fill_toolbox(4)">Mač</li>
+</ul></td>
+<td valign="top">
+  <ul align="left" class="tools" id="toolbox">	
+  </ul>
+</td>
+</tr>
+</table>
+</body>
+</html>
